@@ -17,6 +17,8 @@ def transfer_function(tab, k):
 	i = 0
 	value = 1
 	while i <= len(tab) - 1:
+		if tab[i + 1].compute(k) == 0:
+			sys.exit(84)
 		var = tab[i].compute(k) / tab[i + 1].compute(k)
 		value = value * var
 		i = i + 2
@@ -48,6 +50,7 @@ def create_list_polynome():
 		tab[i] =  Polynome(sys.argv[i + 1].split("*"))
 		i = i + 1
 	return(tab)
+
 if __name__ == "__main__":
 	if len(sys.argv) % 2 != 1:
 		sys.exit(84)
