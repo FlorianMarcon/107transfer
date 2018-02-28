@@ -37,7 +37,10 @@ def transfer_function(tab, k):
 def loop(tab):
 	k = 0.0
 	while k <= 1.0:
-		print (k, "-> ", end = "")
+		if k == int(k):
+			print (int(k), "-> ", end = "")
+		else:
+			print (k, "-> ", end = "")
 		print("%.5f" % transfer_function(tab , k))
 		k = round(k + 0.001, 3)
 
